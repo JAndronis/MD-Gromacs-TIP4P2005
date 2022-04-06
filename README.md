@@ -70,3 +70,29 @@ Make index file and calculate velocity autocorrelations
 $ gmx make_ndx -f md_0_1.gro
 $ gmx velacc -f md_0_1_noPBC.trr -s md_0_1.tpr -n index.ndx -os -mol -recip
 ```
+
+-----
+## Run it on HPC
+To run this on HPC see `notes.txt`. Here I use HPC2N, project number: SNIC2021-22-656.
+
+To connect on the HPC2N use
+```bash 
+$ ssh username@kebnekaise.hpc2n.umu.se
+```
+
+To activate GROMACS and it's prerequisites use: 
+```bash 
+$ ml GCC/10.2.0  CUDA/11.1.1  OpenMPI/4.0.5
+$ ml GCC/10.2.0  OpenMPI/4.0.5
+$ ml GROMACS/2021
+```
+
+Submit jobs by
+```bash
+$ sbatch slurm/cpu.sh
+```
+
+Check status by
+```bash
+squeue -u username
+```
