@@ -94,5 +94,5 @@ $ sbatch slurm/cpu.sh
 
 Check status by
 ```bash
-squeue -u username
+$ squeue -u username
 ```
