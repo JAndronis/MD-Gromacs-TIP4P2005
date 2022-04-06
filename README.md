@@ -9,7 +9,7 @@ http://mackerell.umaryland.edu/charmm_ff.shtml
 
 -----
 
-## Create topolgy
+## Create topology
 
 Make topology file (topol.top) including the following
 ```bash 
