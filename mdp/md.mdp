@@ -1,4 +1,4 @@
-; title                 = TI4P-ew water 
+; title                 = TIP4P/2005 water 
 ; Run parameters
 integrator              = md        ; leap-frog integrator
 nsteps                  = 50000     ; 100 ps
