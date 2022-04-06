@@ -4,12 +4,12 @@ integrator              = md        ; leap-frog integrator
 nsteps                  = 50000     ; 100 ps
 dt                      = 0.002     ; 1 fs
 ; Output control
-nstxout                 = 1         ; suppress bulky .trr file by specifying 
-nstvout                 = 0         ; 0 for output frequency of nstxout,
+nstxout                 = 0         ; suppress bulky .trr file by specifying (turn on for MSD calculation) 
+nstvout                 = 0         ; 0 for output frequency of nstxout, (turn on for vel-autocorr)
 nstfout                 = 0         ; nstvout, and nstfout
-nstenergy               = 0         ; save energies every 10 fs
-nstlog                  = 1         ; update log file every 10 fs
-nstxout-compressed      = 1         ; save compressed coordinates every 10 fs
+nstenergy               = 0         ; save energies 
+nstlog                  = 500       ; update log file every 1 ps
+nstxout-compressed      = 500       ; save compressed coordinates every 1 ps
 compressed-x-grps       = System    ; save the whole system
 ; Bond parameters
 continuation            = yes       ; Restarting after NPT 
