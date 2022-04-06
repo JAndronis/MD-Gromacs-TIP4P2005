@@ -1,0 +1,45 @@
+# notes for running on HPC2N cluster
+
+# load gromacs 2021
+ml GCC/10.2.0  CUDA/11.1.1  OpenMPI/4.0.5
+ml GCC/10.2.0  OpenMPI/4.0.5
+ml GROMACS/2021
+
+#make topology file
+
+#solvate
+gmx solvate -cs tip4p -o box.gro -box 3.5 3.5 3.5 -maxsol 1000 -p topol.top
+
+# Evenrgy minimisation
+gmx grompp -f mdp/em.mdp -c box.gro -p topol.top -o em.tpr
+gmx mdrun -v -deffnm em
+
+# NVT equilibration
+gmx grompp -f mdp/nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
+gmx mdrun -deffnm nvt
+
+# NPT equilibration
+gmx grompp -f mdp/npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
+# modify cpu.sh -> npt
+sbatch slurm/cpu.sh
+squeue -u fpera
+
+# MD
+gmx grompp -f mdp/md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
+# modify cpu.sh -> md
+sbatch slurm/cpu.sh
+
+
+=====
+
+performance
+-----------
+
+1000 water molecules, 1ns
+Using 28 MPI threads, CPU
+Using 1 OpenMP thread per tMPI thread
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     3650.823      130.387     2800.0
+                 (ns/day)    (hour/ns)
+Performance:      662.642        0.036
