@@ -1,0 +1,8 @@
+#include "./charmm36-jul2021.ff/forcefield.itp"
+#include "./charmm36-jul2021.ff/tip4p2005.itp"
+
+[ System ]
+TIP4P2005 in water
+
+[ Molecules]
+SOL             32985

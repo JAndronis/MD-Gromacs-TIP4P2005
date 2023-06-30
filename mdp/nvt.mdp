@@ -1,6 +1,6 @@
 integrator               = md        
 dt                       = 0.002     ; 2 fs
-nsteps                   = 5000      ; 10 ps
+nsteps                   = 50000     ; 100 ps
 nstenergy                = 5000      ; 10 ps
 nstlog                   = 5000      ; 10 ps
 nstxout-compressed       = 0         ; suppress
@@ -21,7 +21,7 @@ DispCorr                 = EnerPres
 tcoupl                   = V-rescale
 tc-grps                  = System
 tau-t                    = 0.1
-ref-t                    = 300
+ref_t                    = 300
 ; Pressure coupling is off
 pcoupl                  = no        ; no pressure coupling in NVT
 ; Periodic boundary conditions

@@ -1,1 +1,17 @@
+
+# vs code
 *.vscode
+
+# jupyter
+*.ipynb_checkpoints
+
+# data
+out_*
+**.png
+**.xvg
+
+# gromacs
+**/mdout.mdp
+
+# temp files
+**/*_temp*/**
